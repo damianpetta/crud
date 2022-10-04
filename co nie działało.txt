@@ -1,0 +1,22 @@
+1. Proszę czytać ze zrozumieniem polecenia, prosiłem o jedno repozytorium z kilkoma branchami, a nie 3 różne repozytoria.
+2. Brak zaimportowanego modułu GO, musiałem sam go sobie stworzyć żeby zainicjować apkę..: https://go.dev/doc/tutorial/create-module.
+3. Nie trzymamy pliku z bazą danych na repo.
+4. Bardzo słabo opisany Swagger - nie widzę endpointów, nie można z nich korzystać zobacz jak jest zrobione tutaj: https://api.askdom.pl/doc/swagger.
+5. Folder Functions, powinien się nazywać Controllers.
+6. Do middleware'ów tworzymy osobny folder.
+
+7. NIE DZIAŁA MI KOD
+functions\middleware.go:36:24: too many arguments in call to client.Ping
+        have (context.Context)
+        want ()
+functions\middleware.go:134:74: too many arguments in call to client.Set
+        have (context.Context, string, string, time.Duration)
+        want (string, interface{}, time.Duration)
+functions\middleware.go:138:76: too many arguments in call to client.Set
+        have (context.Context, string, string, time.Duration)
+        want (string, interface{}, time.Duration)
+functions\middleware.go:245:29: cannot use ctx (variable of type context.Context) as type string in argument to client.Del
+
+
+8. Proszę poprawić wszystkie rzeczy które wypisałem, naprawić kod i dać mi znać :).
+8.1. Jeśli muszę zrobić jakieś magiczne rzeczy, wrzucić zmienne środowiskowe lub cokolwiek innego, to proszę to wypisać w odpowiednim pliku w repozytorium, tak że nawet gdybym się nie znał, to dałbym radę odpalić kod.
