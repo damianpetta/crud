@@ -1,0 +1,92 @@
+{{ define "sites/updatestudent.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      @import url("/css/index.css");
+    </style>
+    <title>Document</title>
+</head>
+<body>
+   
+
+    <h1 class="text-center">Basic Frontend for CRUD API</h1>
+    
+    <ul class="nav justify-content-center bg-dark" >
+        <li class="nav-item">
+          <a class="nav-link" href="./index">Main Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./adding">Add new Student</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./deleting">Delete Student</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./updating">Update Student data</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./showing">Show All Students</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./showing/one">Show One Students</a>
+        </li>
+      </ul>
+    <div class="container col-md-12 float-end mt-3">
+      <div class="row">
+          <div class="container col-md-4 float-end">
+            <a class="btn btn-secondary btn-lg btn-block" href="./adding">Add new Student</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="./deleting">Delete Student</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="./updating">Update Student data</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="./showing">Show All Students</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="./showing/one">Show One Students</a>
+            </div>
+      
+          <div class="container col-md-8 float-end">
+              <div class="col-md-8" id="content">
+                <h2>Update Student data</h2>
+                  <form method="post" id="updating_form">
+                    <label>First name: <input type="text" name="firstname" id="firstname"></label><br>
+                    <label>Last name: <input type="text" name="lastname" id="lastname"></label><br>
+                    <label>Age: <input type="number" name="age" id="age"></label><br>
+                    <label>ID: <input type="number" name="id" id="id"></label><br>
+                    <input type="submit" name="form_submit" id="form_submit" value="Update Data">
+                  </form>
+                  <span id="output"></span>
+                
+              </div>
+          </div>
+        </div>
+      </div>
+        
+<script>
+  function studentData(id){
+    document.querySelector("#output").innerHTML="Student data with id "+id+" was updated"
+
+  }
+  let updatingForm = document.querySelector("#updating_form")
+  updatingForm.onsubmit = function(evt) {
+    evt.preventDefault()
+    let id = parseInt(document.querySelector("#id").value)
+    let firstName = document.querySelector("#firstname").value
+    let lastName = document.querySelector("#lastname").value
+    let age = parseInt(document.querySelector("#age").value)
+   
+    let xhr = new XMLHttpRequest()
+    xhr.open("PUT", "../student/upd/"+id)
+    xhr.send(JSON.stringify({
+      firstname : firstName,
+      lastname : lastName,
+      age : age,
+      ID : id
+      
+    }))
+    studentData(id)
+  }
+</script>
+</body>
+</html>
+{{ end }}
