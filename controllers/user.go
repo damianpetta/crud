@@ -39,15 +39,14 @@ func Login(c *gin.Context) {
 	var given_data models.User
 	var user_data models.User
 	c.BindJSON(&given_data)
-	models.FindUser(&given_data, &user_data)
-
-	if user_data.UserID == 0 {
+	if err := models.FindUser(&given_data, &user_data); err != nil {
 		response.RespondJSON(c, 404, "User not found")
 		return
+	} else {
+		tokens := models.CreateToken(&user_data)
+		c.JSON(200, tokens)
+		return
 	}
-	tokens := models.CreateToken(&user_data)
-
-	c.JSON(200, tokens)
 }
 
 // @Tags        User
