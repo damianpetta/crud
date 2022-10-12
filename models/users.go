@@ -34,6 +34,7 @@ func FindUserByID(userid uint64, u *User) (err error) {
 	return nil
 }
 func CreateToken(user_data *User) map[string]string {
+	// Zmienne środowiskowe proszę wrzucić do pliku .env
 	os.Setenv("secret_access", "secret")
 	os.Setenv("secret_refresh", "refresh")
 	tokens := make(map[string]string)
@@ -158,6 +159,8 @@ func ExtractTokenMetadata(r *http.Request) (*helper.AccessDetails, error) {
 	}
 	return nil, err
 }
+
+// Brak error handlera
 func DeleteAuth(givenUuid string, t *Token) error {
 	config.DB.Table("tokens").Where("uuid = ?", givenUuid).Delete(t)
 	return nil
@@ -165,6 +168,7 @@ func DeleteAuth(givenUuid string, t *Token) error {
 }
 func FetchAuth(c *gin.Context, authD *helper.AccessDetails) string {
 	var tkn Token
+	// Brak Error Handlingu
 	config.DB.Table("tokens").Where("uuid = ?", authD.AccessUuid).First(&tkn)
 
 	timeNow := time.Now().Unix()

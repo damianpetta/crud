@@ -2,6 +2,9 @@ package helper
 
 import "github.com/dgrijalva/jwt-go"
 
+// Structy trzymamy w folderze Models pod nazwą np. struct_user.go
+// Tutaj powinny być skrypty pomocnicze jak ten, który masz w folderze `response`
+
 type ResponseData struct {
 	Status int
 	Meta   interface{}

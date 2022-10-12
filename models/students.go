@@ -19,11 +19,13 @@ func AddStudent(s *Student) (err error) {
 	return nil
 }
 
+// Nie ma error handlingu
 func DelStudent(s *Student, id string) (err error) {
 	config.DB.Where("id = ?", id).Delete(s)
 	return nil
 }
 func UpdateStudent(sn *Student, s *Student, id string) (err error) {
+	// Do zupdatowania usera wystarczy ci tylko i wyłącznie ID, nie musisz robić dwóch połączeń do bazy żeby zaktualizować usera.
 	config.DB.First(&s, id)
 
 	if err := config.DB.Model(&s).Updates(Student{

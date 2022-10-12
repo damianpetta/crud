@@ -16,10 +16,19 @@ func SetupRouter() *gin.Engine {
 	commands := router.Group("student")
 	{
 		commands.GET("list", controllers.ListOfStudents)
-		commands.POST("add/", middleware.AuthMiddlewareAdminOnly(), controllers.AddNewStudent)
-		commands.PUT("upd/:id", middleware.AuthMiddleware(), controllers.UpdateStudentData)
-		commands.DELETE("del/:id", middleware.AuthMiddlewareAdminOnly(), controllers.DeleteStudent)
-		commands.GET("list/:id", controllers.ShowOneStudent)
+		// Nie rozumiem po co przy każdym endpoincie piszesz co robi.
+		// Do odróżniania co robi endpoint służą nam polecenia POST, PUT, DELETE
+
+		// Wolę coś takiego :) I proszę tak zrobić w reszcie endpointów
+		commands.POST("", middleware.AuthMiddlewareAdminOnly(), controllers.AddNewStudent)
+		commands.PUT("/:id", middleware.AuthMiddleware(), controllers.UpdateStudentData)
+		commands.DELETE("/:id", middleware.AuthMiddlewareAdminOnly(), controllers.DeleteStudent)
+		commands.GET("/:id", controllers.ShowOneStudent)
+
+		// commands.POST("add/", middleware.AuthMiddlewareAdminOnly(), controllers.AddNewStudent)
+		// commands.PUT("upd/:id", middleware.AuthMiddleware(), controllers.UpdateStudentData)
+		// commands.DELETE("del/:id", middleware.AuthMiddlewareAdminOnly(), controllers.DeleteStudent)
+		// commands.GET("list/:id", controllers.ShowOneStudent)
 
 	}
 

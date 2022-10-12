@@ -15,9 +15,15 @@ func ListOfStudents(c *gin.Context) {
 	var student []models.Student
 	if err := models.GetAllStudents(&student); err != nil {
 		response.RespondJSON(c, 404, student)
-	} else {
-		response.RespondJSON(c, 200, student)
+		// Trzeba dodać return do zakończenia funkcji
+		return
 	}
+	// Nie potrzebujemy tutaj ELSE
+	response.RespondJSON(c, 200, student)
+
+	// } else {
+	// 	response.RespondJSON(c, 200, student)
+	// }
 }
 
 // @Tags        Student
@@ -70,6 +76,7 @@ func UpdateStudentData(c *gin.Context) {
 	id := c.Param("id")
 
 	c.Bind(&studentN)
+	// Po co ci 2x model dla studenta?
 	if err := models.UpdateStudent(&studentN, &student, id); err != nil {
 		response.RespondJSON(c, 404, student)
 	} else {

@@ -36,17 +36,17 @@ func CreateUser(c *gin.Context) {
 // @Router      /login [post]
 // @Param       User body helper.UserSwaggerLogin true "Enter a user data"
 func Login(c *gin.Context) {
+	// Utrudniasz sobie pracę tymi dwoma implementacjami structów.
+	// Wystarczy ci jeden.
 	var given_data models.User
 	var user_data models.User
 	c.BindJSON(&given_data)
 	if err := models.FindUser(&given_data, &user_data); err != nil {
 		response.RespondJSON(c, 404, "User not found")
 		return
-	} else {
-		tokens := models.CreateToken(&user_data)
-		c.JSON(200, tokens)
-		return
 	}
+	tokens := models.CreateToken(&user_data)
+	c.JSON(200, tokens)
 }
 
 // @Tags        User
@@ -56,6 +56,7 @@ func Login(c *gin.Context) {
 // @Router      /refresh [post]
 // @Param       Refresh body helper.RefreshSwagger true "Enter a refresh_token"
 func Refresh(c *gin.Context) {
+	// Do pliku ze zmiennymi środowiskowymi
 	os.Setenv("secret_access", "secret")
 	os.Setenv("secret_refresh", "refresh")
 	var tokenm models.Token
@@ -109,6 +110,8 @@ func Refresh(c *gin.Context) {
 			c.JSON(http.StatusBadRequest, "user dont exist")
 		} else {
 			tokens := models.CreateToken(&user)
+			// A czemu tutaj nie używasz twojej pomoczniczej funkcji do zwrotek?
+			// Poczytaj sobie na internecie jak w golangu napisać porządny error handler.
 			c.JSON(http.StatusCreated, tokens)
 		}
 
