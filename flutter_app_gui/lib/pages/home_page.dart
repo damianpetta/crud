@@ -45,8 +45,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             IconButton(
                 onPressed: () {
-                  if (currentUserRole == 'developer' ||
-                      currentUserRole == 'admin') {
+                  if (currentUserRole == 'admin') {
                     Navigator.of(context).pushNamed(EditStudentPage.routeName);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
