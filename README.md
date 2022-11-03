@@ -1,4 +1,4 @@
-# Witam, zgodnie z poleceniem zamiast frontendu zrobiłem aplikacje we flutterze.
+Witam, zgodnie z poleceniem zamiast frontendu zrobiłem aplikacje we flutterze.
 
 # JAK WŁĄCZYĆ:
 - uruchamiamy plik main.go 
@@ -6,7 +6,7 @@
   Ten projekt należy również uruchomić. 
   Wszystkie ewentualne testy aplikacji przeprowadzałem na emulatorze.
 # JAK UŻYWAĆ:
-  -  <LOGOWANIE/ <WYLOGOWYWANIE>
+  -  <LOGOWANIE,WYLOGOWYWANIE>
      - W celu wyświetlania, dodawnia, edytowania i usuwania studentów trzeba utworzyć nowego użytkownika z rolą "admin". 
        (Jednorazowo utworzyć przy pomocy przyciusku register, potem tylko logować się podanymi przy rejestracji danymi)
        Jeśli chcemy tylko wyświetlać i edytować trzeba trzeba utworzyć nowego użytkownika z rolą "developer"
