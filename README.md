@@ -6,7 +6,7 @@ JAK WŁĄCZYĆ:
   Ten projekt należy również uruchomić. 
   Wszystkie ewentualne testy aplikacji przeprowadzałem na emulatorze.
  JAK UŻYWAĆ:
-  -<LOGOWANIE,WYLOGOWYWANIE>
+  -LOGOWANIE,WYLOGOWYWANIE
      - W celu wyświetlania, dodawnia, edytowania i usuwania studentów trzeba utworzyć nowego użytkownika z rolą "admin". 
        (Jednorazowo utworzyć przy pomocy przyciusku register, potem tylko logować się podanymi przy rejestracji danymi)
        Jeśli chcemy tylko wyświetlać i edytować trzeba trzeba utworzyć nowego użytkownika z rolą "developer"
@@ -15,21 +15,21 @@ JAK WŁĄCZYĆ:
      - Po jednorazowym logowaniu Aplikacja pobiera dane z access tokena który dostaje w odpowiedzi po zalogowaniu
         i ewentualnie odświeża access token gdy ten wygaśnie przy pomocy refresh tokena więc aby się wylogować i wrócić do ekranu logowania, 
         trzeba nacisnąć przycisk 'logout' który się znajduje w Drawerze lub ewentualnie poczekać, aż refreshtoken straci ważność.
- -<DODAWANIE>
+ -DODAWANIE
       - Aby dodać nowego studenta trzeba kliknąć w ikone plusa na AppBar'rze oraz wypełnić wszystkie pola. (Jest wallidacja jakaś prosta)
       Jeśli nie jesteśmi zalogowani jako admin to wyświetla się na dole komunikat, że dodawać mogą wyłącznie admini
-    <Usuwanie>
+ -USUWANIE
       - Aby usunąć studenta trzeba klicknąć na ikonę śmietnika przy danym studencie. 
       Jeśli nie jesteśmi zalogowani jako admin to wyświtla się na dole komunikat, że usuwać mogą wyłącznie admini  
--<EDYTOWANIE>
+-EDYTOWANIE
       - Aby usunąć studenta trzeba klicknąć na ikonę długopisu (? albo pióra cokolwiek to jest) przy danym studencie. 
         (to jest generalnie ten sam screen co przy dodawaniu tylko wypełniony)
       Jeśli nie jesteśmi zalogowani jako admin albo developer to wyświetla się na dole komunikat, że edytować mogą wyłącznie admini lub developerzy
--<WYŚWIETLANIE>
+-WYŚWIETLANIE
       Domyślnie wyświetlają się nam wszyscy studenci, ale jest też zakładka, w której 
       po wpisaniu konkretnego id znajdującego się jeszcze w bazie studenta wyświetla się nam pojedyńczy student
       Jak wpiszemy złe id wyświetla nam się błąd.
-KILKA UWAG:
+-KILKA UWAG:
   - Generalnie skupiłem sie wyłącznie na flutterze i reszta kodu z golanga pozostała tak jak była. 
       (mimo tego że było kilka uwag i na chwilę obecną bym to zadanie inaczej zrobił (i pewnie lepiej/czytelniej). 
       Ale to po prostu wezmę pod uwagę przy następnym zadaniu).
