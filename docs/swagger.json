@@ -1,0 +1,314 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API created to pracite golang skills",
+        "title": "Simple CRUD API",
+        "contact": {}
+    },
+    "basePath": "/",
+    "paths": {
+        "/login": {
+            "post": {
+                "description": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "description": "Enter a user data",
+                        "name": "User",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserSwaggerLogin"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/refresh": {
+            "post": {
+                "description": "Refresh",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "description": "Enter a refresh_token",
+                        "name": "Refresh",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshSwagger"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/register": {
+            "post": {
+                "description": "Take create user request and creates an user",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "description": "Enter a user data",
+                        "name": "User",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserSwaggerRegister"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/student/add/": {
+            "post": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Take create student request and creates an student",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Student"
+                ],
+                "parameters": [
+                    {
+                        "description": "Enter a student data",
+                        "name": "Student",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/StudentSwagger"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/student/del/{id}": {
+            "delete": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Take Delete student request and deletes an student",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Student"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Enter a student id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/student/list": {
+            "get": {
+                "description": "Take show user request and returns list of all students",
+                "tags": [
+                    "Student"
+                ],
+                "responses": {}
+            }
+        },
+        "/student/list/{id}": {
+            "get": {
+                "description": "Show data of specific Student",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Student"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Enter a student id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/student/upd/{id}": {
+            "put": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Take update student request and updates an student data",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Student"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Enter a student id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Enter a student data",
+                        "name": "Student",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/StudentSwagger"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/view/": {
+            "get": {
+                "description": "Just showing an index page",
+                "tags": [
+                    "Frontend"
+                ],
+                "responses": {}
+            }
+        },
+        "/view/adding/": {
+            "get": {
+                "description": "Show a page where you can add a new Student",
+                "tags": [
+                    "Frontend"
+                ],
+                "responses": {}
+            }
+        },
+        "/view/deleting/": {
+            "get": {
+                "description": "Show a page where you can delete a Student from database",
+                "tags": [
+                    "Frontend"
+                ],
+                "responses": {}
+            }
+        },
+        "/view/showing": {
+            "get": {
+                "description": "Show a page where you can see all students",
+                "tags": [
+                    "Frontend"
+                ],
+                "responses": {}
+            }
+        },
+        "/view/updating/": {
+            "get": {
+                "description": "Show a page where you can update Student data",
+                "tags": [
+                    "Frontend"
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "RefreshSwagger": {
+            "type": "object",
+            "properties": {
+                "refresh_token": {
+                    "description": "Refresh object swagger",
+                    "type": "string",
+                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InN0cmluZyIsInJvbGUiOiJoZWxpa29wdGVyIiwidXVpZCI6IjJmNGUwMTkzLTQyNGUtNGRiYS1hY2EwLTFkNDMzYmJjM2Q2NCIsImV4cCI6MTY2NDg5Mzc3Nn0.x8FX7wla5G6xSgxEELc6VjFjY5S9DNohDvg6RCcsqEs"
+                }
+            }
+        },
+        "StudentSwagger": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "integer",
+                    "example": 5
+                },
+                "firstname": {
+                    "description": "Student object swaggger",
+                    "type": "string",
+                    "example": "Student1"
+                },
+                "lastname": {
+                    "type": "string",
+                    "example": "Lastname1"
+                }
+            }
+        },
+        "UserSwaggerLogin": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "example": "Password1"
+                },
+                "username": {
+                    "description": "User object swagger",
+                    "type": "string",
+                    "example": "User1"
+                }
+            }
+        },
+        "UserSwaggerRegister": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "example": "Password1"
+                },
+                "role": {
+                    "type": "string",
+                    "example": "only admin or developer work"
+                },
+                "username": {
+                    "description": "User object swagger",
+                    "type": "string",
+                    "example": "User1"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "description": "In this version of swagger you must write \"Bearer \" prefiks before your JWT token \"Bearer [your_token]\"",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
