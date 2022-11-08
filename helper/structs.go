@@ -27,6 +27,7 @@ type StudentSwagger struct {
 	FirstName string `json:"firstname" example:"Student1"`
 	LastName  string `json:"lastname" example:"Lastname1"`
 	Age       int    `json:"age" example:"5"`
+	PhotoImg  string `json:"photo_img"`
 } //@name StudentSwagger
 
 type UserSwaggerRegister struct {

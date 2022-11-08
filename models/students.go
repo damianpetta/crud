@@ -30,6 +30,7 @@ func UpdateStudent(sn *Student, s *Student, id string) (err error) {
 		FirstName: sn.FirstName,
 		Age:       sn.Age,
 		LastName:  sn.LastName,
+		PhotoImg:  sn.PhotoImg,
 	}).Error; err != nil {
 		return err
 	}

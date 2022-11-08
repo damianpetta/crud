@@ -9,6 +9,7 @@ type Student struct {
 	FirstName string `json:"firstname"`
 	LastName  string `json:"lastname"`
 	Age       int    `json:"age"`
+	PhotoImg  string `json:"photo_img"`
 }
 type User struct {
 	UserID   uint   `json:"user_id" gorm:"primarykey"`
